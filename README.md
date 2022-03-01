@@ -76,8 +76,9 @@ guide and looking through the
 [2020-12 draft of the JSON Schema Core specification](https://json-schema.org/draft/2020-12/json-schema-core.html)
 we soon realized that a complete implementation of the entire specification
 would be outside the scope of this assignment. We decided to specify a
-subset of the features defined in the specification, and implement these.
-They are as follows:
+subset of the features defined in the specification, and implement this
+as a starting point, leaving room for a complete implementation if time allows.
+These requirements are as follows:
 
 - The root must contain `"$schema"` (but we don't care about the URI)
 - The root must contain `"$id"` (but we don't care about the URI)
