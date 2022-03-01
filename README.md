@@ -80,8 +80,8 @@ subset of the features defined in the specification, and implement this
 as a starting point, leaving room for a complete implementation if time allows.
 These requirements are as follows:
 
-- The root must contain `"$schema"` (but we don't care about the URI)
-- The root must contain `"$id"` (but we don't care about the URI)
+- The root must contain the property `"$schema"` (but we don't care about the URI)
+- The root must contain the property `"$id"` (but we don't care about the URI)
 - Every data structure (can be nested) must specifiy the `"type"` property
 - We also must support the following properties: 
   - `"title"`  (but we don't care about the content)
