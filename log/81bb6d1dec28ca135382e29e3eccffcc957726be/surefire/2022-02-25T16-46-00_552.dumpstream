@@ -1,0 +1,4 @@
+# Created at 2022-02-25T16:46:01.664
+Boot Manifest-JAR contains absolute paths in classpath 'H:\Documents\kth\dd2480\gson\gson\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+
