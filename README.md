@@ -54,7 +54,45 @@ Scope (functionality and code affected).
 
 ## Requirements for the new feature or requirements affected by functionality being refactored
 
-Optional (point 3): trace tests to requirements.
+> Optional (point 3): trace tests to requirements.
+
+The requirements for the feature was specified on a very high level in the
+[initial suggestion](https://github.com/google/gson/issues/783#issue-131196793).
+To validate JSON against a JSON schema file was the main requirement, and some
+suggestions regarding the design of the API and the implementation was made as
+well. These were not seen as hard requirements by us - rather, we decided to
+only see validation of JSON, in whatever way, as the only hard requirement
+stated in this issue.
+
+We could not base these requirements on code reviews or existing test cases,
+since this issue is an enhancement, adding completely new functionality to the
+project. We had to instead research the requirements based on external sources.
+
+Validation of JSON is quite a complex task.
+[https://json-schema.org](https://json-schema.org) has formal specifications of
+JSON schemas, as well as more beginner friendly guides. When reading the 
+[Getting Started Step-By-Step](https://json-schema.org/learn/getting-started-step-by-step)
+guide and looking through the
+[2020-12 draft of the JSON Schema Core specification](https://json-schema.org/draft/2020-12/json-schema-core.html)
+we soon realized that a complete implementation of the entire specification
+would be outside the scope of this assignment. We decided to specify a
+subset of the features defined in the specification, and implement these.
+They are as follows:
+
+- The root must contain `"$schema"` (but we don't care about the URI)
+- The root must contain `"$id"` (but we don't care about the URI)
+- Every data structure (can be nested) must specifiy the `"type"` property
+- We also must support the following properties: 
+  - `"title"`  (but we don't care about the content)
+  -  `"description"`  (but we don't care about the content)
+  - `"properties"` (only applicable if the `type` is `object`)
+  -  `"required"` (only applicable if the `type` is `object`)
+  - `"items"` (only applicable if the `type` is `array`)
+  - `"minItems"` (only applicable if the `type` is `array`)
+  - `"uniqueItems"` (only applicable if the `type` is `array`)
+  - "`exclusiveMinimum`" (only applicable if the `type` is `number`)
+  - "`minimum`" (only applicable if the `type` is `number`)
+  - "`maximum`" (only applicable if the `type` is `number`)
 
 ## Code changes
 
