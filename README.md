@@ -16,9 +16,6 @@ The [`google/gson`](https://github.com/google/gson) repository is a Java library
 
 We decided to stick with the [`google/gson`](https://github.com/google/gson) project.
 It used Maven and the project was easy to build and the test-suite could be executed quite fast (it took a couple of seconds).
-We picked issue [#783](https://github.com/google/gson/issues/783) which was about adding an implementation of JSON schema.
-JSON Schema is a standard for checking if a JSON document has a specific structure. With JSON schema we can enforce types
-and, for example, ensure that an object has a set of required properties. 
 
 ## Effort spent
 
@@ -46,11 +43,13 @@ you took care of and where you spent your time, if that time exceeds
 
 ## Overview of issue(s) and work done.
 
-Title:
+Title: Validate JSon again Json Schema file #783
 
-URL:
+URL: https://github.com/google/gson/issues/783
 
-Summary in one or two sentences
+We picked issue [#783](https://github.com/google/gson/issues/783) which was about adding an implementation of JSON schema.
+JSON Schema is a standard for checking if a JSON document has a specific structure. With JSON schema we can enforce types
+and, for example, ensure that an object has a set of required properties. 
 
 Scope (functionality and code affected).
 
