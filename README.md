@@ -6,11 +6,11 @@ has to be delivered in a standard, cross-platform format.
 
 ## Project
 
-Name:
+Name: google/gson
 
-URL:
+URL: https://github.com/google/gson
 
-One or two sentences describing it
+The [`google/gson`](https://github.com/google/gson) repository is a Java library for serializing and deserializing JSON.
 
 ## Onboarding experience
 
