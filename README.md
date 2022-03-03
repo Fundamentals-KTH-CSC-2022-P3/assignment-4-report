@@ -122,11 +122,14 @@ Since our issue was to add a new feature, and this feature was quite orthogonal
 to the rest of gson's functionality, the changes we had to introduce could be
 kept very local. In the end we only had to add one new class that did not
 inherit from other classes or implement interfaces already present in the
-project.
+project. It does, however, make use of several existing classes and their
+functionalities. These are included for clarity in the diagram.
 
-The class diagram for the class, JsonSchemaMatcher, is included below:
+The class diagram for the new class JsonSchemaMatcher, as well as the most
+significant classes already present in the project for this issue is included
+below:
 
-![UML class diagram of the changes](img/JsonSchemaMatcher.png)
+![UML class diagram](img/JsonSchemaMatcher.png)
 
 ### Key changes/classes affected
 
