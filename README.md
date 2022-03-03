@@ -14,6 +14,9 @@ The [`google/gson`](https://github.com/google/gson) repository is a Java library
 
 ## Onboarding experience
 
+We decided to stick with the [`google/gson`](https://github.com/google/gson) project.
+It used Maven and the project was easy to build and the test-suite could be executed quite fast (it took a couple of seconds).
+
 Did you choose a new project or continue on the previous one?
 
 If you changed the project, how did your experience differ from before?
