@@ -16,6 +16,9 @@ The [`google/gson`](https://github.com/google/gson) repository is a Java library
 
 We decided to stick with the [`google/gson`](https://github.com/google/gson) project.
 It used Maven and the project was easy to build and the test-suite could be executed quite fast (it took a couple of seconds).
+We picked issue [#783](https://github.com/google/gson/issues/783) which was about adding an implementation of JSON schema.
+JSON schema is a standard for checking if a JSON document has a specific structure, with JSON schema we can enforce types
+and ensure that an object has definied a set of required properties, for instance. 
 
 Did you choose a new project or continue on the previous one?
 
