@@ -80,9 +80,10 @@ subset of the features defined in the specification, and implement this
 as a starting point, leaving room for a complete implementation if time allows.
 These requirements are as follows:
 
-- The root must contain the property `"$schema"` (but we don't care about the URI)
-- The root must contain the property `"$id"` (but we don't care about the URI)
-- Every data structure (can be nested) must specifiy the `"type"` property
+- The schema root must be a boolean or an object.
+- If the root is an object it can contain the property `"$schema"` (but we don't care about the URI)
+-  If the root is an object it can contain the property `"$id"` (but we don't care about the URI)
+- Every data structure (can be nested) can specifiy the `"type"` property
 - We also must support the following properties: 
   - `"title"`  (but we don't care about the content)
   -  `"description"`  (but we don't care about the content)
@@ -92,6 +93,7 @@ These requirements are as follows:
   - `"minItems"` (only applicable if the `type` is `array`)
   - `"uniqueItems"` (only applicable if the `type` is `array`)
   - "`exclusiveMinimum`" (only applicable if the `type` is `number`)
+  - "`exclusiveMaximum`" (only applicable if the `type` is `number`)
   - "`minimum`" (only applicable if the `type` is `number`)
   - "`maximum`" (only applicable if the `type` is `number`)
 
