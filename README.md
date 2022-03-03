@@ -51,7 +51,11 @@ We picked issue [#783](https://github.com/google/gson/issues/783) which was abou
 JSON Schema is a standard for checking if a JSON document has a specific structure. With JSON schema we can enforce types
 and, for example, ensure that an object has a set of required properties. 
 
-Scope (functionality and code affected).
+> Scope (functionality and code affected)
+
+The JSON schema feature could be implemented in isolation from the rest of the codebase. 
+It was like an extension. 
+However, to make it easier for the user to use our JSON schema extension, we needed to integrate the JSON schema code into the existing `Gson` class.
 
 ## Requirements for the new feature or requirements affected by functionality being refactored
 
