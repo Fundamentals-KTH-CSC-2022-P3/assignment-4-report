@@ -112,8 +112,15 @@ Optional (point 5): considered for acceptance (passes all automated checks).
 
 ## Test results
 
-Overall results with link to a copy or excerpt of the logs (before/after
+> Overall results with link to a copy or excerpt of the logs (before/after
 refactoring).
+
+The output of running the tests before any work was done can be seen
+[here](log/81bb6d1dec28ca135382e29e3eccffcc957726be/).
+The [output.txt](log/81bb6d1dec28ca135382e29e3eccffcc957726be/output.txt)
+file contains the console output from running `maven test`, and the
+[surefire](log/81bb6d1dec28ca135382e29e3eccffcc957726be/surefire/) folder
+contains the generated Surefire report.
 
 ## UML class diagram and its description
 
