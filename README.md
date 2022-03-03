@@ -122,6 +122,16 @@ refactoring).
 
 ## UML class diagram and its description
 
+Since our issue was to add a new feature, and this feature was quite orthogonal
+to the rest of gson's functionality, the changes we had to introduce could be
+kept very local. In the end we only had to add one new class that did not
+inherit from other classes or implement interfaces already present in the
+project.
+
+The class diagram for the class, JsonSchemaMatcher, is included below:
+
+![UML class diagram of the changes](img/JsonSchemaMatcher.png)
+
 ### Key changes/classes affected
 
 Optional (point 1): Architectural overview.
