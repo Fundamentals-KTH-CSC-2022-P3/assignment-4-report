@@ -86,29 +86,20 @@ subset of the features defined in the specification, and implement this
 as a starting point, leaving room for a complete implementation if time allows.
 These requirements are as follows:
 
-| Id | Title                                       | Description                                                                                                                                      | Issue                                                                     |
-|----|---------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
-| 1  | Match a JSON schema against a JSON instance | We want a class `JsonSchemaMatcher` that takes a schema as input and has a function `matches` that can match the schema against a JSON instance. | [Issue #2](https://github.com/Fundamentals-KTH-CSC-2022-P3/gson/issues/2) |
-| 2  |                                             |                                                                                                                                                  |                                                                           |
-| 3  |                                             |                                                                                                                                                  |                                                                           |
-| 4  |                                             |                                                                                                                                                  |                                                                           |
-
-- The schema root must be a boolean or an object.
-- If the root is an object it can contain the property `"$schema"` (but we don't care about the URI)
--  If the root is an object it can contain the property `"$id"` (but we don't care about the URI)
-- Every data structure (can be nested) can specifiy the `"type"` property
-- We also must support the following properties: 
-  - `"title"`  (but we don't care about the content)
-  -  `"description"`  (but we don't care about the content)
-  - `"properties"` (only applicable if the `type` is `object`)
-  -  `"required"` (only applicable if the `type` is `object`)
-  - `"items"` (only applicable if the `type` is `array`)
-  - `"minItems"` (only applicable if the `type` is `array`)
-  - `"uniqueItems"` (only applicable if the `type` is `array`)
-  - "`exclusiveMinimum`" (only applicable if the `type` is `number`)
-  - "`exclusiveMaximum`" (only applicable if the `type` is `number`)
-  - "`minimum`" (only applicable if the `type` is `number`)
-  - "`maximum`" (only applicable if the `type` is `number`)
+| Id | Title                                       | Description                                                                                                                                                                                             | Issue                                                                     |
+|----|---------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
+| 1  | Match a JSON schema against a JSON instance | We want a class `JsonSchemaMatcher` that takes a JSON schema as input and has a function `matches` that can match the JSON schema against a JSON instance.                                              | [Issue #2](https://github.com/Fundamentals-KTH-CSC-2022-P3/gson/issues/2) |
+| 2  | Validate a JSON schema                      | We want a class `JsonSchemaValidator` that takes a JSON schema as input and has a function `validate` that ensures that the schema is valid (according to the subset of the specification that we use). | [Issue #1](https://github.com/Fundamentals-KTH-CSC-2022-P3/gson/issues/1) |
+| 3  | Support the `type` property                 | When matching a JSON schema against a JSON instance we would like to support the `type` property which can enforce a specific type that the instance must use.                                          | [Issue #2](https://github.com/Fundamentals-KTH-CSC-2022-P3/gson/issues/2) |
+| 4  | Support the `properties` property           | When matching a JSON schema against a JSON instance object we would like to support the `properties` property which defines the structure of the members of the JSON instance object.                   | [Issue #2](https://github.com/Fundamentals-KTH-CSC-2022-P3/gson/issues/2) |
+| 5  | Support the `required` property             | When matching a JSON schema against a JSON instance object we would like to support the `required` property which defines the members that are required to exist in the JSON instance object.           | [Issue #2](https://github.com/Fundamentals-KTH-CSC-2022-P3/gson/issues/2) |
+| 6  | Support the `items` property                | When matching a JSON schema against a JSON instance array we would like to support the `items` property which defines the structure that all elements in the JSON instance array must obey.             | [Issue #2](https://github.com/Fundamentals-KTH-CSC-2022-P3/gson/issues/2) |
+| 7  | Support the `minItems` property             | When matching a JSON schema against a JSON instance array we would like to support the `minItems` property which defines the minimum number of elements that must exist inside the JSON instance array. | [Issue #2](https://github.com/Fundamentals-KTH-CSC-2022-P3/gson/issues/2) |
+| 8  | Support the `uniqueItems` property          | When matching a JSON schema against a JSON instance array we would like to support the `uniqueItems` property which ensures that all elements in the JSON instance array are unique.                    | [Issue #2](https://github.com/Fundamentals-KTH-CSC-2022-P3/gson/issues/2) |
+| 9  | Support the `minimum` property              | When matching a JSON schema against a JSON instance number we would like to support the `minimum` property which ensures that the JSON instance number is greater than or equal to a specific value.    | [Issue #2](https://github.com/Fundamentals-KTH-CSC-2022-P3/gson/issues/2) |
+| 10 | Support the `maximum` property              | When matching a JSON schema against a JSON instance number we would like to support the `maximum` property which ensures that the JSON instance number is less than or equal to a specific value.       | [Issue #2](https://github.com/Fundamentals-KTH-CSC-2022-P3/gson/issues/2) |
+| 11 | Support the `exclusiveMinimum` property     | When matching a JSON schema against a JSON instance number we would like to support the `exclusiveMinimum` property which ensures that the JSON instance number is greater than a specific value.       | [Issue #2](https://github.com/Fundamentals-KTH-CSC-2022-P3/gson/issues/2) |
+| 12 | Support the `exclusiveMaximum` property     | When matching a JSON schema against a JSON instance number we would like to support the `exclusiveMaximum` property which ensures that the JSON instance number is less than a specific value.          | [Issue #2](https://github.com/Fundamentals-KTH-CSC-2022-P3/gson/issues/2) |
 
 ## Code changes
 
