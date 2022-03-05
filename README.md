@@ -80,7 +80,7 @@ JSON schemas, as well as more beginner friendly guides. When reading the
 [Getting Started Step-By-Step](https://json-schema.org/learn/getting-started-step-by-step)
 guide and looking through the
 [2020-12 draft of the JSON Schema Core specification](https://json-schema.org/draft/2020-12/json-schema-core.html)
-we soon realized that a complete implementation of the entire specification
+and also the [2020-12 draft of the JSON Schema Validation specification](https://json-schema.org/draft/2020-12/json-schema-validation.html) we soon realized that a complete implementation of the entire specification
 would be outside the scope of this assignment. We decided to specify a
 subset of the features defined in the specification, and implement this
 as a starting point, leaving room for a complete implementation if time allows.
