@@ -19,27 +19,17 @@ It used Maven and the project was easy to build and the test-suite could be exec
 
 ## Effort spent
 
-For each team member, how much time was spent in
-
-1. plenary discussions/meetings;
-
-2. discussions within parts of the group;
-
-3. reading documentation;
-
-4. configuration and setup;
-
-5. analyzing code/output;
-
-6. writing documentation;
-
-7. writing code;
-
-8. running code?
-
-For setting up tools and libraries (step 4), enumerate all dependencies
-you took care of and where you spent your time, if that time exceeds
-30 minutes.
+|                                       | Ludwig Kristoffersson | Arvid Siberov | Katrina Liang | Marcus Alevärn | Samuel Philipson |
+|---------------------------------------|-----------------------|---------------|---------------|----------------|------------------|
+| Plenary discussions/meetings          | 3                     | 3             | 3             | 3              | 3                |
+| Discussions within parts of the group | 0                     | 0             | 0             | 0              | 0                |
+| Reading documentation                 | 1                     | 1             | 1             | 1              | 1                |
+| Configuration and setup               | 0                     | 0             | 0             | 0              | 0                |
+| Analyzing code/output                 | 0                     | 0             | 0             | 0              | 0                |
+| Writing documentation                 | 0                     | 1.5           | 0             | 3.5            | 0                |
+| Writing code                          | 0                     | 11.5          | 0             | 13.5           | 0                |
+| Running code                          | 0                     | 0             | 0             | 0              | 0                |
+| **Total**                             | 0                     | 0             | 0             | 0              | 0                |
 
 ## Overview of issue(s) and work done.
 
