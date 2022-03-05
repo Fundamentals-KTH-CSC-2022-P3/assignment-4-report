@@ -86,6 +86,13 @@ subset of the features defined in the specification, and implement this
 as a starting point, leaving room for a complete implementation if time allows.
 These requirements are as follows:
 
+| Id | Title                                       | Description                                                                                                                                      | Issue                                                                     |
+|----|---------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
+| 1  | Match a JSON schema against a JSON instance | We want a class `JsonSchemaMatcher` that takes a schema as input and has a function `matches` that can match the schema against a JSON instance. | [Issue #2](https://github.com/Fundamentals-KTH-CSC-2022-P3/gson/issues/2) |
+| 2  |                                             |                                                                                                                                                  |                                                                           |
+| 3  |                                             |                                                                                                                                                  |                                                                           |
+| 4  |                                             |                                                                                                                                                  |                                                                           |
+
 - The schema root must be a boolean or an object.
 - If the root is an object it can contain the property `"$schema"` (but we don't care about the URI)
 -  If the root is an object it can contain the property `"$id"` (but we don't care about the URI)
