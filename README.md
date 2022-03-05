@@ -101,6 +101,12 @@ These requirements are as follows:
 | 11 | Support the `exclusiveMinimum` property     | When matching a JSON schema against a JSON instance number we would like to support the `exclusiveMinimum` property which ensures that the JSON instance number is greater than a specific value.       | [Issue #2](https://github.com/Fundamentals-KTH-CSC-2022-P3/gson/issues/2) |
 | 12 | Support the `exclusiveMaximum` property     | When matching a JSON schema against a JSON instance number we would like to support the `exclusiveMaximum` property which ensures that the JSON instance number is less than a specific value.          | [Issue #2](https://github.com/Fundamentals-KTH-CSC-2022-P3/gson/issues/2) |
 
+In turned out that we could implement these requirements quite fast, and hence we extended our subset of the specification a bit and added some more properties from the specification. These extended requirements are as follows:
+
+| Id | Title                       | Description                                                                                                                                                      | Issue                                                                       |
+|----|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
+| 13 | Support the `enum` property | When matching a JSON schema against a JSON instance we would like to support the `enum` property which defines a set of values that the instance must pick from. | [Issue #11](https://github.com/Fundamentals-KTH-CSC-2022-P3/gson/issues/11) |
+
 ## Code changes
 
 ### Patch
