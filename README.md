@@ -178,7 +178,7 @@ and therefore not allowed for this assignment.
 In the end, our main take-away from this project was the friends we made along
 the way.
 
-How did you grow as a team, using the Essence standard to evaluate yourself?
+> How did you grow as a team, using the Essence standard to evaluate yourself?
 
 > ~~Optional (point 6): How would you put your work in context with best software engineering practice?~~
 
