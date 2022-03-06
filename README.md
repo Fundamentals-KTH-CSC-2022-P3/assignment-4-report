@@ -50,7 +50,7 @@ This turned out to be much more difficult than we anticipated. The `Gson` class 
 
 ## Requirements for the new feature or requirements affected by functionality being refactored
 
-> Optional (point 3): trace tests to requirements.
+> ~~Optional (point 3): trace tests to requirements.~~
 
 The requirements for the feature was specified on a very high level in the
 [initial suggestion](https://github.com/google/gson/issues/783#issue-131196793).
@@ -139,9 +139,9 @@ below:
 
 ### Key changes/classes affected
 
-Optional (point 1): Architectural overview.
+> ~~Optional (point 1): Architectural overview.~~
 
-Optional (point 2): relation to design pattern(s).
+> ~~Optional (point 2): relation to design pattern(s).~~
 
 ## Overall experience
 
@@ -149,6 +149,6 @@ What are your main take-aways from this project? What did you learn?
 
 How did you grow as a team, using the Essence standard to evaluate yourself?
 
-Optional (point 6): How would you put your work in context with best software engineering practice?
+> ~~Optional (point 6): How would you put your work in context with best software engineering practice?~~
 
-Optional (point 7): Is there something special you want to mention here?
+> ~~Optional (point 7): Is there something special you want to mention here?~~
