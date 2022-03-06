@@ -38,7 +38,7 @@ Even though the lifecycle methods were exposed and properly caught by IntelliJ (
 | Writing documentation                 | 2                     | 2             | 0             | 3.5            | 1.5              |
 | Writing code                          | 10                    | 13.5          | 16            | 14.5           | 16               |
 | Running code                          | 1                     | 0             | 0             | 0              | 0                |
-| **Total**                             | 20.5                  | 20            | 20.5          | 22.5           | 22               |
+| **Total**                             | 20.5                  | 20            | 20.5          | 23.5           | 22               |
 
 ## Overview of issue(s) and work done.
 
