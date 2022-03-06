@@ -93,9 +93,10 @@ These requirements are as follows:
 
 In turned out that we could implement these requirements quite fast, and hence we extended our subset of the specification a bit and added some more properties from the specification. These extended requirements are as follows:
 
-| Id | Title                       | Description                                                                                                                                                      | Issue                                                                       |
-|----|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
-| 13 | Support the `enum` property | When matching a JSON schema against a JSON instance we would like to support the `enum` property which defines a set of values that the instance must pick from. | [Issue #11](https://github.com/Fundamentals-KTH-CSC-2022-P3/gson/issues/11) |
+| Id | Title                                                         | Description                                                                                                                                                                 | Issue                                                                       |
+|----|---------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
+| 13 | Support the `enum` property                                   | When matching a JSON schema against a JSON instance we would like to support the `enum` property which defines a set of values that the instance must pick from.            | [Issue #11](https://github.com/Fundamentals-KTH-CSC-2022-P3/gson/issues/11) |
+| 14 | Integrate the `JsonSchemaMatcher` class into the `Gson` class | We would like to have a user-friendly way to use our `JsonSchemaMatcher` code. Modify the `Gson` class such that it is easy to match a JSON schema against a JSON instance. | [Issue #5](https://github.com/Fundamentals-KTH-CSC-2022-P3/gson/issues/5)   |
 
 ## Code changes
 
