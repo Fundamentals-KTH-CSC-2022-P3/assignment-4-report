@@ -30,15 +30,15 @@ Even though the lifecycle methods were exposed and properly caught by IntelliJ (
 
 |                                       | Ludwig Kristoffersson | Arvid Siberov | Katrina Liang | Marcus Alevärn | Samuel Philipson |
 |---------------------------------------|-----------------------|---------------|---------------|----------------|------------------|
-| Plenary discussions/meetings          | 3                     | 3             | 3             | 3              | 3                |
-| Discussions within parts of the group | 1                     | 0             | 0             | 0              | 0                |
+| Plenary discussions/meetings          | 3.5                   | 3.5           | 3.5           | 3.5            | 3.5              |
+| Discussions within parts of the group | 1                     | 0             | 0             | 1              | 0                |
 | Reading documentation                 | 1                     | 1             | 1             | 1              | 1                |
 | Configuration and setup               | 2                     | 0             | 0             | 0              | 0                |
 | Analyzing code/output                 | 0                     | 0             | 0             | 0              | 0                |
-| Writing documentation                 | 2                     | 1.5           | 0             | 3.5            | 0                |
-| Writing code                          | 10                    | 11.5          | 0             | 13.5           | 0                |
+| Writing documentation                 | 2                     | 2             | 0             | 3.5            | 1.5              |
+| Writing code                          | 10                    | 13.5          | 16            | 14.5           | 16               |
 | Running code                          | 1                     | 0             | 0             | 0              | 0                |
-| **Total**                             | 0                     | 0             | 0             | 0              | 0                |
+| **Total**                             | 20.5                  | 20            | 20.5          | 22.5           | 22               |
 
 ## Overview of issue(s) and work done.
 
