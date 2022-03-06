@@ -15,7 +15,16 @@ The [`google/gson`](https://github.com/google/gson) repository is a Java library
 ## Onboarding experience
 
 We decided to stick with the [`google/gson`](https://github.com/google/gson) project.
-It used Maven and the project was easy to build and the test-suite could be executed quite fast (it took a couple of seconds).
+
+The project clearly shows how to add is as a dependency to one of your own projects with both maven and gradle.
+
+For contributing though, the documentation is very poor. How to configure the project and run hte test suite is not documented. This isn't that bad though, since it's a maven project it's fairly standardized how to build and execute anyways.
+
+There is no issue template, or other standard documentation such as code of conduct.
+
+They have a [design documented linked in the README](https://github.com/google/gson/blob/master/GsonDesignDocument.md) which is rather helpful in understanding why it's built like it is.
+
+Even though the lifecycle methods were exposed and properly caught by IntelliJ (the editor all group members use). We all had difficulties getting it to run properly as a custom _run configuration_ (which meant we didn't get proper stack traces on errors in the test suite, etc). Only after manually editing the `pom.xml` to use a higher java version, could we run it from inside IntelliJ. All of this could probably be better documented to help starters in the project.
 
 ## Effort spent
 
