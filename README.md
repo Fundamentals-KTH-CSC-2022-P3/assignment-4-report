@@ -39,12 +39,12 @@ URL: https://github.com/google/gson/issues/783
 
 We picked issue [#783](https://github.com/google/gson/issues/783) which was about adding an implementation of JSON schema.
 JSON Schema is a standard for checking if a JSON document has a specific structure. With JSON schema we can enforce types
-and, for example, ensure that an object has a set of required properties. 
+and, for example, ensure that an object has a set of required properties.
 
 > Scope (functionality and code affected)
 
-The JSON schema feature could be implemented in isolation from the rest of the codebase. 
-It was like an extension. 
+The JSON schema feature could be implemented in isolation from the rest of the codebase.
+It was like an extension.
 However, to make it easier for the user to use our JSON schema extension, we needed to integrate the JSON schema code into the existing `Gson` class.
 This turned out to be much more difficult than we anticipated. The `Gson` class used a completely different approach (with TypeAdapters) to parse the JSON document. We used the `JsonParser` class in our `JsonSchemaMather` class for parsing. These two approaches were not compatible with each other and hence we could not integrate our code into the `Gson` class without failing certain tests. Google provides both the TypeAdapters and the `JsonParser` classes, and it is very unpleasant that they are not consistent in how to handle different edge cases. For example, if there are two duplicate keys in a JSON object, then TypeAdapters throws an exception, while `JsonParser` overwrites the value of the key. Because of this, we chose to redesign this feature. Instead of matching while parsing the JSON, we instead only allow for matching already parsed JSON through the `Gson.matchesSchema` method.
 
@@ -66,7 +66,7 @@ project. We had to instead research the requirements based on external sources.
 
 Validation of JSON is quite a complex task.
 [https://json-schema.org](https://json-schema.org) has formal specifications of
-JSON schemas, as well as more beginner friendly guides. When reading the 
+JSON schemas, as well as more beginner friendly guides. When reading the
 [Getting Started Step-By-Step](https://json-schema.org/learn/getting-started-step-by-step)
 guide and looking through the
 [2020-12 draft of the JSON Schema Core specification](https://json-schema.org/draft/2020-12/json-schema-core.html)
