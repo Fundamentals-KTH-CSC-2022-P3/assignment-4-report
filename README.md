@@ -145,7 +145,38 @@ below:
 
 ## Overall experience
 
-What are your main take-aways from this project? What did you learn?
+> What are your main take-aways from this project? What did you learn?
+
+The primary take-away from this project is the challenges regarding integration
+of new features into an existing code base. The application logic for the
+requested feature that we implemented was not too challenging. Implementing
+the entire JSON schema standard would be time consuming, but we have already
+implemented a significant part of it, and implementing the rest would be a
+lengthy but straightforward process.
+
+The problems with the integration could have been avoided if we spent more
+time on researching the structure of the project. We found _one_ way of
+parsing JSON that Gson provided, and assumed that using that way would work
+out. In fact, Gson has several non compatible ways of parsing JSON, and the
+`fromJson` method that we wanted to integrate our functionality with used
+an incompatible one from our code. A more detailed plan, created from more
+elaborate research, would have allowed us to make a better solution. It is,
+however, not easy to know when you have researched "enough". This could have
+been helped by a clearer problem statement. As it was, the issue was a
+quite parsimonious feature request, and we had to fill in a lot of the blanks
+ourselves regarding how the functionality was to be designed.
+
+Furthermore, researching different OSS projects gave us a lot of insicts into
+how differently these can be structured. Which issue tracker is used, how
+patches are to be submitted, and how elaborate the requirements in the
+CONTRIBUTING file varied greatly. Licensing was also something that we realised
+was quite a spider's nest. We briefly considered Elasticsearch instead of
+Gson, but as of recently Elasticsearch has changed license from the OSI approved
+Apache 2.0 license to the Elastic license, which is not approved by the OSI
+and therefore not allowed for this assignment.
+
+In the end, our main take-away from this project was the friends we made along
+the way.
 
 How did you grow as a team, using the Essence standard to evaluate yourself?
 
