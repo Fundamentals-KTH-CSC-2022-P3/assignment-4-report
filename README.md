@@ -180,6 +180,8 @@ the way.
 
 > How did you grow as a team, using the Essence standard to evaluate yourself?
 
+Our assessment can be found [here](https://docs.google.com/document/d/1XJc1R4Db2PLmgEDtZTL-Bu86uDo7R8cj4A2kuxIYq5k). Or as a PDF in [essence/Issue Resolution - Assessment of Team.pdf](essence/Issue_Resolution_-_Assessment_of_Team.pdf)
+
 > ~~Optional (point 6): How would you put your work in context with best software engineering practice?~~
 
 > ~~Optional (point 7): Is there something special you want to mention here?~~
