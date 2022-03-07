@@ -111,13 +111,11 @@ In turned out that we could implement these requirements quite fast, and hence w
 
 ### Patch
 
-(copy your changes or the add git command to show them)
+[Here](https://github.com/Fundamentals-KTH-CSC-2022-P3/assignment-4-report/blob/main/patches/changes.patch) is a link to our patch. 
 
-git diff ...
+~~Optional (point 4): the patch is clean.~~
 
-Optional (point 4): the patch is clean.
-
-Optional (point 5): considered for acceptance (passes all automated checks).
+~~Optional (point 5): considered for acceptance (passes all automated checks).~~
 
 ## Test results
 
