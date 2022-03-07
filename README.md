@@ -32,15 +32,15 @@ Gson is currently in maintanance mode, it wasn't obvious to us that this was the
 
 |                                       | Ludwig Kristoffersson | Arvid Siberov | Katrina Liang | Marcus Alevärn | Samuel Philipson |
 |---------------------------------------|-----------------------|---------------|---------------|----------------|------------------|
-| Plenary discussions/meetings          | 3.5                   | 3.5           | 3.5           | 3.5            | 3.5              |
-| Discussions within parts of the group | 1                     | 0             | 0             | 1              | 0                |
+| Planary discussions/meetings          | 3                     | 3             | 3             | 3              | 3                |
+| Discussions within parts of the group | 1                     | 0             | 0.5           | 1              | 0.5              |
 | Reading documentation                 | 1                     | 1             | 1             | 1              | 1                |
-| Configuration and setup               | 2                     | 0             | 0             | 0              | 0                |
-| Analyzing code/output                 | 0                     | 0             | 0             | 0              | 0                |
+| Configuration and setup               | 2                     | 0             | 0             | 0              | 0.5              |
+| Analyzing code/output                 | 0.5                   | 0.5           | 0.5           | 0.5            | 2                |
 | Writing documentation                 | 2                     | 2             | 0             | 3.5            | 1.5              |
-| Writing code                          | 10                    | 13.5          | 16            | 14.5           | 16               |
+| Writing code                          | 10                    | 13.5          | 15.5          | 14.5           | 15.5             |
 | Running code                          | 1                     | 0             | 0             | 0              | 0                |
-| **Total**                             | 20.5                  | 20            | 20.5          | 23.5           | 22               |
+| **Total**                             | 20.5                  | 20            | 20.5          | 23.5           | 24               |
 
 ## Overview of issue(s) and work done.
 
