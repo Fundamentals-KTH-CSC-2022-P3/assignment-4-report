@@ -129,6 +129,9 @@ file contains the console output from running `maven test`, and the
 [surefire](log/81bb6d1dec28ca135382e29e3eccffcc957726be/surefire/) folder
 contains the generated Surefire report.
 
+The output of running the tests after our changes can be seen
+[here](log/f6b533435667fa34c1a08c9637a280b6fed2a7c4/).
+
 ## UML class diagram and its description
 
 Since our issue was to add a new feature, and this feature was quite orthogonal
