@@ -1,0 +1,15 @@
+-------------------------------------------------------------------------------
+Test set: com.google.gson.internal.bind.DefaultDateTypeAdapterTest
+-------------------------------------------------------------------------------
+Tests run: 11, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.066 s <<< FAILURE! - in com.google.gson.internal.bind.DefaultDateTypeAdapterTest
+com.google.gson.internal.bind.DefaultDateTypeAdapterTest.testParsingDatesFormattedWithSystemLocale  Time elapsed: 0.014 s  <<< ERROR!
+com.google.gson.JsonSyntaxException: Failed parsing '1 janv. 1970 à 00:00:00' as Date; at path $
+	at com.google.gson/com.google.gson.internal.bind.DefaultDateTypeAdapterTest.assertParsed(DefaultDateTypeAdapterTest.java:210)
+	at com.google.gson/com.google.gson.internal.bind.DefaultDateTypeAdapterTest.testParsingDatesFormattedWithSystemLocale(DefaultDateTypeAdapterTest.java:85)
+Caused by: java.text.ParseException: Failed to parse date ["1 janv. 1970 à 00:00:00"]: Invalid number: 1 ja
+	at com.google.gson/com.google.gson.internal.bind.DefaultDateTypeAdapterTest.assertParsed(DefaultDateTypeAdapterTest.java:210)
+	at com.google.gson/com.google.gson.internal.bind.DefaultDateTypeAdapterTest.testParsingDatesFormattedWithSystemLocale(DefaultDateTypeAdapterTest.java:85)
+Caused by: java.lang.NumberFormatException: Invalid number: 1 ja
+	at com.google.gson/com.google.gson.internal.bind.DefaultDateTypeAdapterTest.assertParsed(DefaultDateTypeAdapterTest.java:210)
+	at com.google.gson/com.google.gson.internal.bind.DefaultDateTypeAdapterTest.testParsingDatesFormattedWithSystemLocale(DefaultDateTypeAdapterTest.java:85)
+
