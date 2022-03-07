@@ -26,6 +26,8 @@ They have a [design documented linked in the README](https://github.com/google/g
 
 Even though the lifecycle methods were exposed and properly caught by IntelliJ (the editor all group members use). We all had difficulties getting it to run properly as a custom _run configuration_ (which meant we didn't get proper stack traces on errors in the test suite, etc). Only after manually editing the `pom.xml` to use a higher java version, could we run it from inside IntelliJ. All of this could probably be better documented to help starters in the project.
 
+Gson is currently in maintanance mode, it wasn't obvious to us that this was the case, since this was only mentioned when one tried to open a new feature request, [here](https://github.com/google/gson/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=). After we chose the project however, this was mentioned in [the README](https://github.com/google/gson/commit/d7f824119cd68f986fd5ed8a501007e6862f5081).
+
 ## Effort spent
 
 |                                       | Ludwig Kristoffersson | Arvid Siberov | Katrina Liang | Marcus Alevärn | Samuel Philipson |
@@ -111,7 +113,7 @@ In turned out that we could implement these requirements quite fast, and hence w
 
 ### Patch
 
-[Here](https://github.com/Fundamentals-KTH-CSC-2022-P3/assignment-4-report/blob/main/patches/changes.patch) is a link to our patch. 
+[Here](https://github.com/Fundamentals-KTH-CSC-2022-P3/assignment-4-report/blob/main/patches/changes.patch) is a link to our patch.
 
 ~~Optional (point 4): the patch is clean.~~
 
