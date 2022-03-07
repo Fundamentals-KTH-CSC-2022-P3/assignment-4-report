@@ -20,7 +20,7 @@ The project clearly shows how to add is as a dependency to one of your own proje
 
 For contributing though, the documentation is very poor. How to configure the project and run hte test suite is not documented. This isn't that bad though, since it's a maven project it's fairly standardized how to build and execute anyways.
 
-There is no issue template, or other standard documentation such as code of conduct.
+There is an issue template (although hard to find), and other standard documentation (also hard to find) such as code of conduct.
 
 They have a [design documented linked in the README](https://github.com/google/gson/blob/master/GsonDesignDocument.md) which is rather helpful in understanding why it's built like it is.
 
