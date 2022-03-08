@@ -151,7 +151,7 @@ that did not inherit from other classes or implement interfaces already present 
 project. They do, however, make use of several existing classes and their
 functionalities.
 
-We integrated the `JsonSchemaMatcher` class into the existing Gson codebase by modifying the existing `GsonBuilder` class and the `Gson` class. Both in the `Gson` class and the `GsonBuilder` class, we added a field that stores an instance of type `JsonSchemaMatcher`. In the `GsonBuilder` class, we also added two public methods `setSchemaMatcher` and `disableSchema` which makes it possible for the user to specify a schema that will be loaded into a `Gson` object if the `create` method inside the `GsonBuilder` class is called. Lastly, in the `Gson` class, we added a function `matchesSchema` that takes a JSON instance as input and tries to match that against the JSON schema, if the matching succeeds, then the method returns `true`, otherwise the method returns `false`.
+We integrated the `JsonSchemaMatcher` class into the existing Gson codebase by modifying the existing `GsonBuilder` class and the `Gson` class. Both in the `Gson` class and the `GsonBuilder` class, we added a field that stores an instance of type `JsonSchemaMatcher`. In the `GsonBuilder` class, we also added two public methods `setSchemaMatcher` and `disableSchemaMatcher` which makes it possible for the user to specify a schema that will be loaded into a `Gson` object if the `create` method inside the `GsonBuilder` class is called. Lastly, in the `Gson` class, we added a function `matchesSchema` that takes a JSON instance as input and tries to match that against the JSON schema, if the matching succeeds, then the method returns `true`, otherwise the method returns `false`.
 
 ### Key changes/classes affected
 
