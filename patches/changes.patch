@@ -1,27 +1,16 @@
-diff --git a/gson/build.gradle b/gson/build.gradle
-deleted file mode 100644
-index 5a8919bc..00000000
---- a/gson/build.gradle
-+++ /dev/null
-@@ -1,13 +0,0 @@
--apply plugin: 'java'
--apply plugin: 'maven'
--
--group = 'com.google.code.gson'
--version = '2.8.6-SNAPSHOT'
--
--sourceCompatibility = 1.7
--targetCompatibility = 1.7
--
--sourceSets.main.java.exclude("**/module-info.java")
--dependencies {
--    testCompile "junit:junit:4.12"
--}
 diff --git a/gson/src/main/java/com/google/gson/Gson.java b/gson/src/main/java/com/google/gson/Gson.java
-index 62c8b0c6..9bf3431d 100644
+index 62c8b0c6..2c8adfa6 100644
 --- a/gson/src/main/java/com/google/gson/Gson.java
 +++ b/gson/src/main/java/com/google/gson/Gson.java
-@@ -116,6 +116,7 @@ public final class Gson {
+@@ -54,6 +54,7 @@ import com.google.gson.internal.bind.ReflectiveTypeAdapterFactory;
+ import com.google.gson.internal.bind.TypeAdapters;
+ import com.google.gson.internal.sql.SqlTypesSupport;
+ import com.google.gson.reflect.TypeToken;
++import com.google.gson.schema.JsonSchemaMatcher;
+ import com.google.gson.stream.JsonReader;
+ import com.google.gson.stream.JsonToken;
+ import com.google.gson.stream.JsonWriter;
+@@ -116,6 +117,7 @@ public final class Gson {
    static final FieldNamingStrategy DEFAULT_FIELD_NAMING_STRATEGY = FieldNamingPolicy.IDENTITY;
    static final ToNumberStrategy DEFAULT_OBJECT_TO_NUMBER_STRATEGY = ToNumberPolicy.DOUBLE;
    static final ToNumberStrategy DEFAULT_NUMBER_TO_NUMBER_STRATEGY = ToNumberPolicy.LAZILY_PARSED_NUMBER;
@@ -29,7 +18,7 @@ index 62c8b0c6..9bf3431d 100644
  
    private static final TypeToken<?> NULL_KEY_SURROGATE = TypeToken.get(Object.class);
    private static final String JSON_NON_EXECUTABLE_PREFIX = ")]}'\n";
-@@ -156,6 +157,7 @@ public final class Gson {
+@@ -156,6 +158,7 @@ public final class Gson {
    final List<TypeAdapterFactory> builderHierarchyFactories;
    final ToNumberStrategy objectToNumberStrategy;
    final ToNumberStrategy numberToNumberStrategy;
@@ -37,7 +26,7 @@ index 62c8b0c6..9bf3431d 100644
  
    /**
     * Constructs a Gson object with default configuration. The default configuration has the
-@@ -199,7 +201,8 @@ public final class Gson {
+@@ -199,7 +202,8 @@ public final class Gson {
          DEFAULT_USE_JDK_UNSAFE,
          LongSerializationPolicy.DEFAULT, DEFAULT_DATE_PATTERN, DateFormat.DEFAULT, DateFormat.DEFAULT,
          Collections.<TypeAdapterFactory>emptyList(), Collections.<TypeAdapterFactory>emptyList(),
@@ -47,7 +36,7 @@ index 62c8b0c6..9bf3431d 100644
    }
  
    Gson(Excluder excluder, FieldNamingStrategy fieldNamingStrategy,
-@@ -211,7 +214,8 @@ public final class Gson {
+@@ -211,7 +215,8 @@ public final class Gson {
        int timeStyle, List<TypeAdapterFactory> builderFactories,
        List<TypeAdapterFactory> builderHierarchyFactories,
        List<TypeAdapterFactory> factoriesToBeAdded,
@@ -57,7 +46,7 @@ index 62c8b0c6..9bf3431d 100644
      this.excluder = excluder;
      this.fieldNamingStrategy = fieldNamingStrategy;
      this.instanceCreators = instanceCreators;
-@@ -232,6 +236,7 @@ public final class Gson {
+@@ -232,6 +237,7 @@ public final class Gson {
      this.builderHierarchyFactories = builderHierarchyFactories;
      this.objectToNumberStrategy = objectToNumberStrategy;
      this.numberToNumberStrategy = numberToNumberStrategy;
@@ -65,7 +54,7 @@ index 62c8b0c6..9bf3431d 100644
  
      List<TypeAdapterFactory> factories = new ArrayList<TypeAdapterFactory>();
  
-@@ -1062,6 +1067,16 @@ public final class Gson {
+@@ -1062,6 +1068,16 @@ public final class Gson {
      return (T) fromJson(new JsonTreeReader(json), typeOfT);
    }
  
@@ -83,11 +72,14 @@ index 62c8b0c6..9bf3431d 100644
      private TypeAdapter<T> delegate;
  
 diff --git a/gson/src/main/java/com/google/gson/GsonBuilder.java b/gson/src/main/java/com/google/gson/GsonBuilder.java
-index 43318fb3..187c3835 100644
+index 43318fb3..a3eb35bc 100644
 --- a/gson/src/main/java/com/google/gson/GsonBuilder.java
 +++ b/gson/src/main/java/com/google/gson/GsonBuilder.java
-@@ -34,17 +34,7 @@ import com.google.gson.internal.sql.SqlTypesSupport;
+@@ -32,19 +32,10 @@ import com.google.gson.internal.bind.TreeTypeAdapter;
+ import com.google.gson.internal.bind.TypeAdapters;
+ import com.google.gson.internal.sql.SqlTypesSupport;
  import com.google.gson.reflect.TypeToken;
++import com.google.gson.schema.JsonSchemaMatcher;
  import com.google.gson.stream.JsonReader;
  
 -import static com.google.gson.Gson.DEFAULT_COMPLEX_MAP_KEYS;
@@ -105,7 +97,7 @@ index 43318fb3..187c3835 100644
  
  /**
   * <p>Use this builder to construct a {@link Gson} instance when you need to set configuration
-@@ -101,6 +91,7 @@ public final class GsonBuilder {
+@@ -101,6 +92,7 @@ public final class GsonBuilder {
    private boolean useJdkUnsafe = DEFAULT_USE_JDK_UNSAFE;
    private ToNumberStrategy objectToNumberStrategy = DEFAULT_OBJECT_TO_NUMBER_STRATEGY;
    private ToNumberStrategy numberToNumberStrategy = DEFAULT_NUMBER_TO_NUMBER_STRATEGY;
@@ -113,7 +105,7 @@ index 43318fb3..187c3835 100644
  
    /**
     * Creates a GsonBuilder instance that can be used to build Gson with various configuration
-@@ -137,6 +128,7 @@ public final class GsonBuilder {
+@@ -137,6 +129,7 @@ public final class GsonBuilder {
      this.useJdkUnsafe = gson.useJdkUnsafe;
      this.objectToNumberStrategy = gson.objectToNumberStrategy;
      this.numberToNumberStrategy = gson.numberToNumberStrategy;
@@ -121,7 +113,7 @@ index 43318fb3..187c3835 100644
    }
  
    /**
-@@ -377,6 +369,27 @@ public final class GsonBuilder {
+@@ -377,6 +370,27 @@ public final class GsonBuilder {
      return this;
    }
  
@@ -149,7 +141,7 @@ index 43318fb3..187c3835 100644
    /**
     * Configures Gson to apply the passed in exclusion strategy during serialization.
     * If this method is invoked numerous times with different exclusion strategy objects
-@@ -654,7 +667,8 @@ public final class GsonBuilder {
+@@ -654,7 +668,8 @@ public final class GsonBuilder {
          generateNonExecutableJson, escapeHtmlChars, prettyPrinting, lenient,
          serializeSpecialFloatingPointValues, useJdkUnsafe, longSerializationPolicy,
          datePattern, dateStyle, timeStyle,
@@ -159,14 +151,15 @@ index 43318fb3..187c3835 100644
    }
  
    private void addTypeAdaptersForDate(String datePattern, int dateStyle, int timeStyle,
-diff --git a/gson/src/main/java/com/google/gson/JsonSchemaMatcher.java b/gson/src/main/java/com/google/gson/JsonSchemaMatcher.java
+diff --git a/gson/src/main/java/com/google/gson/schema/JsonSchemaMatcher.java b/gson/src/main/java/com/google/gson/schema/JsonSchemaMatcher.java
 new file mode 100644
-index 00000000..0b77479e
+index 00000000..b9ee6710
 --- /dev/null
-+++ b/gson/src/main/java/com/google/gson/JsonSchemaMatcher.java
-@@ -0,0 +1,371 @@
-+package com.google.gson;
++++ b/gson/src/main/java/com/google/gson/schema/JsonSchemaMatcher.java
+@@ -0,0 +1,372 @@
++package com.google.gson.schema;
 +
++import com.google.gson.*;
 +import com.google.gson.stream.JsonReader;
 +
 +import java.io.Reader;
@@ -179,7 +172,7 @@ index 00000000..0b77479e
 +public class JsonSchemaMatcher {
 +
 +  // The "true" schema matches any valid JSON
-+  static final JsonSchemaMatcher ALLOW_EVERYTHING = new JsonSchemaMatcher("true");
++  public static final JsonSchemaMatcher ALLOW_EVERYTHING = new JsonSchemaMatcher("true");
 +
 +  // The root of the schema file can be either a JSON object or a Boolean.
 +  private final JsonElement schemaRoot;
@@ -536,13 +529,18 @@ index 00000000..0b77479e
 +    return matches(JsonParser.parseReader(jsonInstance));
 +  }
 +}
-diff --git a/gson/src/main/java/com/google/gson/JsonSchemaValidator.java b/gson/src/main/java/com/google/gson/JsonSchemaValidator.java
+diff --git a/gson/src/main/java/com/google/gson/schema/JsonSchemaValidator.java b/gson/src/main/java/com/google/gson/schema/JsonSchemaValidator.java
 new file mode 100644
-index 00000000..b762947b
+index 00000000..506230c1
 --- /dev/null
-+++ b/gson/src/main/java/com/google/gson/JsonSchemaValidator.java
-@@ -0,0 +1,269 @@
-+package com.google.gson;
++++ b/gson/src/main/java/com/google/gson/schema/JsonSchemaValidator.java
+@@ -0,0 +1,274 @@
++package com.google.gson.schema;
++
++import com.google.gson.JsonArray;
++import com.google.gson.JsonElement;
++import com.google.gson.JsonObject;
++import com.google.gson.JsonPrimitive;
 +
 +import java.net.URI;
 +import java.util.HashMap;
@@ -811,11 +809,34 @@ index 00000000..b762947b
 +        }
 +    }
 +}
+diff --git a/gson/src/main/java/module-info.java b/gson/src/main/java/module-info.java
+index 0134c9dc..a8e0900b 100644
+--- a/gson/src/main/java/module-info.java
++++ b/gson/src/main/java/module-info.java
+@@ -7,8 +7,9 @@ module com.google.gson {
+ 	exports com.google.gson.annotations;
+ 	exports com.google.gson.reflect;
+ 	exports com.google.gson.stream;
++    exports com.google.gson.schema;
+ 
+-	// Optional dependency on java.sql
++    // Optional dependency on java.sql
+ 	requires static java.sql;
+ 
+ 	// Optional dependency on jdk.unsupported for JDK's sun.misc.Unsafe
 diff --git a/gson/src/test/java/com/google/gson/GsonTest.java b/gson/src/test/java/com/google/gson/GsonTest.java
-index 186ceec9..b69a1f83 100644
+index 186ceec9..26f84e69 100644
 --- a/gson/src/test/java/com/google/gson/GsonTest.java
 +++ b/gson/src/test/java/com/google/gson/GsonTest.java
-@@ -56,7 +56,8 @@ public final class GsonTest extends TestCase {
+@@ -17,6 +17,7 @@
+ package com.google.gson;
+ 
+ import com.google.gson.internal.Excluder;
++import com.google.gson.schema.JsonSchemaMatcher;
+ import com.google.gson.stream.JsonReader;
+ import com.google.gson.stream.JsonWriter;
+ import com.google.gson.stream.MalformedJsonException;
+@@ -56,7 +57,8 @@ public final class GsonTest extends TestCase {
          true, true, false, true, LongSerializationPolicy.DEFAULT, null, DateFormat.DEFAULT,
          DateFormat.DEFAULT, new ArrayList<TypeAdapterFactory>(),
          new ArrayList<TypeAdapterFactory>(), new ArrayList<TypeAdapterFactory>(),
@@ -825,7 +846,7 @@ index 186ceec9..b69a1f83 100644
  
      assertEquals(CUSTOM_EXCLUDER, gson.excluder);
      assertEquals(CUSTOM_FIELD_NAMING_STRATEGY, gson.fieldNamingStrategy());
-@@ -70,7 +71,8 @@ public final class GsonTest extends TestCase {
+@@ -70,7 +72,8 @@ public final class GsonTest extends TestCase {
          true, true, false, true, LongSerializationPolicy.DEFAULT, null, DateFormat.DEFAULT,
          DateFormat.DEFAULT, new ArrayList<TypeAdapterFactory>(),
          new ArrayList<TypeAdapterFactory>(), new ArrayList<TypeAdapterFactory>(),
@@ -835,7 +856,7 @@ index 186ceec9..b69a1f83 100644
  
      Gson clone = original.newBuilder()
          .registerTypeAdapter(Object.class, new TestTypeAdapter())
-@@ -152,4 +154,32 @@ public final class GsonTest extends TestCase {
+@@ -152,4 +155,32 @@ public final class GsonTest extends TestCase {
      assertEquals("test", jsonReader.nextString());
      jsonReader.close();
    }
@@ -868,12 +889,12 @@ index 186ceec9..b69a1f83 100644
 +    assertTrue(gson.matchesSchema(instance));
 +  }
  }
-diff --git a/gson/src/test/java/com/google/gson/JsonSchemaMatcherTest.java b/gson/src/test/java/com/google/gson/JsonSchemaMatcherTest.java
+diff --git a/gson/src/test/java/com/google/gson/schema/JsonSchemaMatcherTest.java b/gson/src/test/java/com/google/gson/schema/JsonSchemaMatcherTest.java
 new file mode 100644
-index 00000000..201cd90a
+index 00000000..204aa0b7
 --- /dev/null
-+++ b/gson/src/test/java/com/google/gson/JsonSchemaMatcherTest.java
-@@ -0,0 +1,471 @@
++++ b/gson/src/test/java/com/google/gson/schema/JsonSchemaMatcherTest.java
+@@ -0,0 +1,475 @@
 +/*
 + * Copyright (C) 2008 Google Inc.
 + *
@@ -890,8 +911,12 @@ index 00000000..201cd90a
 + * limitations under the License.
 + */
 +
-+package com.google.gson;
++package com.google.gson.schema;
 +
++import com.google.gson.JsonArray;
++import com.google.gson.JsonElement;
++import com.google.gson.JsonObject;
++import com.google.gson.JsonParser;
 +import com.google.gson.stream.JsonReader;
 +import junit.framework.TestCase;
 +import org.junit.Before;
@@ -1345,19 +1370,19 @@ index 00000000..201cd90a
 +    return el;
 +  }
 +}
-diff --git a/gson/src/test/java/com/google/gson/JsonSchemaValidatorTest.java b/gson/src/test/java/com/google/gson/JsonSchemaValidatorTest.java
+diff --git a/gson/src/test/java/com/google/gson/schema/JsonSchemaValidatorTest.java b/gson/src/test/java/com/google/gson/schema/JsonSchemaValidatorTest.java
 new file mode 100644
-index 00000000..9292cc2a
+index 00000000..9353e5cf
 --- /dev/null
-+++ b/gson/src/test/java/com/google/gson/JsonSchemaValidatorTest.java
++++ b/gson/src/test/java/com/google/gson/schema/JsonSchemaValidatorTest.java
 @@ -0,0 +1,175 @@
-+package com.google.gson;
++package com.google.gson.schema;
 +
-+import junit.framework.TestCase;
++import com.google.gson.JsonElement;
++import com.google.gson.JsonParser;
++import com.google.gson.schema.JsonSchemaValidator;
 +import org.junit.Assert;
-+import org.junit.Rule;
 +import org.junit.Test;
-+import org.junit.rules.ExpectedException;
 +
 +public class JsonSchemaValidatorTest {
 +
@@ -1526,3 +1551,16 @@ index 00000000..9292cc2a
 +        JsonSchemaValidator.validateNumberAndInteger(root2.getAsJsonObject());
 +    }
 +}
+diff --git a/pom.xml b/pom.xml
+index eab2eafc..60c30543 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -28,7 +28,7 @@
+ 
+   <properties>
+     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+-    <javaVersion>7</javaVersion>
++    <javaVersion>11</javaVersion>
+   </properties>
+ 
+   <scm>

@@ -20,25 +20,27 @@ The project clearly shows how to add is as a dependency to one of your own proje
 
 For contributing though, the documentation is very poor. How to configure the project and run hte test suite is not documented. This isn't that bad though, since it's a maven project it's fairly standardized how to build and execute anyways.
 
-There is no issue template, or other standard documentation such as code of conduct.
+There is an issue template (although hard to find), and other standard documentation (also hard to find) such as code of conduct.
 
 They have a [design documented linked in the README](https://github.com/google/gson/blob/master/GsonDesignDocument.md) which is rather helpful in understanding why it's built like it is.
 
 Even though the lifecycle methods were exposed and properly caught by IntelliJ (the editor all group members use). We all had difficulties getting it to run properly as a custom _run configuration_ (which meant we didn't get proper stack traces on errors in the test suite, etc). Only after manually editing the `pom.xml` to use a higher java version, could we run it from inside IntelliJ. All of this could probably be better documented to help starters in the project.
 
+Gson is currently in maintanance mode, it wasn't obvious to us that this was the case, since this was only mentioned when one tried to open a new feature request, [here](https://github.com/google/gson/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=). After we chose the project however, this was mentioned in [the README](https://github.com/google/gson/commit/d7f824119cd68f986fd5ed8a501007e6862f5081).
+
 ## Effort spent
 
 |                                       | Ludwig Kristoffersson | Arvid Siberov | Katrina Liang | Marcus Alevärn | Samuel Philipson |
 |---------------------------------------|-----------------------|---------------|---------------|----------------|------------------|
-| Plenary discussions/meetings          | 3.5                   | 3.5           | 3.5           | 3.5            | 3.5              |
-| Discussions within parts of the group | 1                     | 0             | 0             | 1              | 0                |
+| Planary discussions/meetings          | 3                     | 3             | 3             | 3              | 3                |
+| Discussions within parts of the group | 1                     | 0             | 0.5           | 1              | 0.5              |
 | Reading documentation                 | 1                     | 1             | 1             | 1              | 1                |
-| Configuration and setup               | 2                     | 0             | 0             | 0              | 0                |
-| Analyzing code/output                 | 0                     | 0             | 0             | 0              | 0                |
+| Configuration and setup               | 2                     | 0             | 0             | 0              | 0.5              |
+| Analyzing code/output                 | 0.5                   | 0.5           | 0.5           | 0.5            | 2                |
 | Writing documentation                 | 2                     | 2             | 0             | 3.5            | 1.5              |
-| Writing code                          | 10                    | 13.5          | 16            | 14.5           | 16               |
+| Writing code                          | 10                    | 13.5          | 15.5          | 14.5           | 15.5             |
 | Running code                          | 1                     | 0             | 0             | 0              | 0                |
-| **Total**                             | 20.5                  | 20            | 20.5          | 23.5           | 22               |
+| **Total**                             | 20.5                  | 20            | 20.5          | 23.5           | 24               |
 
 ## Overview of issue(s) and work done.
 
@@ -111,7 +113,7 @@ In turned out that we could implement these requirements quite fast, and hence w
 
 ### Patch
 
-[Here](https://github.com/Fundamentals-KTH-CSC-2022-P3/assignment-4-report/blob/main/patches/changes.patch) is a link to our patch. 
+[Here](https://github.com/Fundamentals-KTH-CSC-2022-P3/assignment-4-report/blob/main/patches/changes.patch) is a link to our patch.
 
 ~~Optional (point 4): the patch is clean.~~
 
@@ -134,18 +136,22 @@ The output of running the tests after our changes can be seen
 
 ## UML class diagram and its description
 
+> UML Diagram before we added our feature
+
+![UML class diagram](img/beforeUML.png)
+
+> UML Diagram after we added our feature
+
+![UML class diagram](img/afterUML.png)
+
 Since our issue was to add a new feature, and this feature was quite orthogonal
-to the rest of gson's functionality, the changes we had to introduce could be
-kept very local. In the end we only had to add one new class that did not
-inherit from other classes or implement interfaces already present in the
-project. It does, however, make use of several existing classes and their
-functionalities. These are included for clarity in the diagram.
+to the rest of Gson's functionality, the changes we had to introduce could be
+kept very local. In the end, we only had to add two new classes `JsonSchemaMatcher` and `JsonSchemaValidator` 
+that did not inherit from other classes or implement interfaces already present in the
+project. They do, however, make use of several existing classes and their
+functionalities.
 
-The class diagram for the new class JsonSchemaMatcher, as well as the most
-significant classes already present in the project for this issue is included
-below:
-
-![UML class diagram](img/JsonSchemaMatcher.png)
+We integrated the `JsonSchemaMatcher` class into the existing Gson codebase by modifying the existing `GsonBuilder` class and the `Gson` class. Both in the `Gson` class and the `GsonBuilder` class, we added a field that stores an instance of type `JsonSchemaMatcher`. In the `GsonBuilder` class, we also added two public methods `setSchemaMatcher` and `disableSchemaMatcher` which makes it possible for the user to specify a schema that will be loaded into a `Gson` object if the `create` method inside the `GsonBuilder` class is called. Lastly, in the `Gson` class, we added a function `matchesSchema` that takes a JSON instance as input and tries to match that against the JSON schema, if the matching succeeds, then the method returns `true`, otherwise the method returns `false`.
 
 ### Key changes/classes affected
 
